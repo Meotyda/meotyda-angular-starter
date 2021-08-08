@@ -1,0 +1,19 @@
+.bg {
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+
+  &--screen {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to top, #cfd9df14 0%, #e2ebf01f 100%);
+  }
+
+  &--image {
+    background-image: url(/assets/images/login-bg.png);
+  }
+}

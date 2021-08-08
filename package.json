@@ -2,16 +2,20 @@
   "name": "angular-meotyda-starter",
   "version": "0.0.1",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --base-href ./ ",
+    "start": "ng serve --port 3000",
+    "build": "ng build --base-href ./",
+    "build:prod": "ng build --base-href ./ --configuration production",
+    "build:prod:stats": "ng build --base-href ./ --configuration production --stats-json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "prepare": "husky install",
     "prettier": "prettier --config ./.prettierrc --write \"src/{app,environments}/**/*{.ts,.html,.scss,.json}\"",
     "prettier:verify": "prettier --config ./.prettierrc --check \"src/{app,environments}/**/*{.ts,.html,.scss,.json}\"",
-    "prettier:staged": "pretty-quick --staged"
+    "prettier:staged": "pretty-quick --staged",
+    "compodoc": "npx compodoc -p tsconfig.app.json",
+    "changelog": "changelog",
+    "analyze": "webpack-bundle-analyzer dist/angular-starter/stats-es2015.json",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +24,7 @@
     "@angular/common": "~12.2.0",
     "@angular/compiler": "~12.2.0",
     "@angular/core": "~12.2.0",
+    "@angular/flex-layout": "^12.0.0-beta.34",
     "@angular/forms": "~12.2.0",
     "@angular/material": "^12.2.0",
     "@angular/platform-browser": "~12.2.0",
@@ -27,6 +32,7 @@
     "@angular/router": "~12.2.0",
     "@ngx-loading-bar/core": "^5.1.1",
     "@ngx-loading-bar/router": "^5.1.1",
+    "lodash-es": "^4.17.21",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"
@@ -42,6 +48,7 @@
     "@angular/compiler-cli": "~12.2.0",
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
+    "@compodoc/compodoc": "^1.1.14",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "4.23.0",
@@ -62,15 +69,12 @@
     "prettier": "2.3.2",
     "pretty-quick": "^3.1.1",
     "standard-version": "^9.3.0",
-    "typescript": "~4.2.3"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+    "typescript": "~4.2.3",
+    "webpack-bundle-analyzer": "^3.7.0",
+    "generate-changelog": "^1.8.0"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,css,scss,html}": [
+    "**/*.{js,jsx,ts,tsx,css,scss,html,md}": [
       "npx eslint",
       "npx pretty-quick --stagged"
     ]

@@ -1,0 +1,39 @@
+<div class="login" fxLayout="row">
+  <div fxFlex="512px" fxLayout="column" class="w100">
+    <img fxFlexAlign="start" alt="meotyda-logo" src="../../assets/images/logo.png" class="form--logo" />
+    <div fxFlex="calc(50% - 4px)" fxLayout="column" fxLayoutAlign="center center" class="form w100">
+      <div class="form--title">Meotyda Angular Starter</div>
+      <div class="form--title form--title__sub">Sing In</div>
+      <form fxLayout="column" class="w100" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label> Email or Username </mat-label>
+          <input matInput placeholder="Input email or username..." formControlName="username" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label> Password </mat-label>
+          <input
+            matInput
+            placeholder="Input password..."
+            formControlName="password"
+            [type]="passwordHidden ? 'password' : 'text'"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            type="button"
+            color="primary"
+            (click)="passwordHidden = !passwordHidden"
+            aria-label="Hide password"
+            [attr.aria-pressed]="passwordHidden"
+          >
+            <mat-icon>
+              {{ passwordHidden ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+          </button>
+        </mat-form-field>
+        <button mat-flat-button color="primary" type="submit">Sign in</button>
+      </form>
+    </div>
+  </div>
+  <app-bg fxFlex="calc(100% - 512px)"></app-bg>
+</div>

@@ -1,15 +1,9 @@
+import * as shared from '@shared/index';
 import { NgModule } from '@angular/core';
 
-const components = [];
-
-const entryComponents = [];
-
-const coreModules = [];
-
 @NgModule({
-  declarations: [],
-  entryComponents: [],
-  imports: [],
-  exports: [],
+  declarations: [...shared.components, ...shared.directives, ...shared.pipes],
+  imports: [...shared.modules],
+  exports: [...shared.components, ...shared.directives, ...shared.pipes, shared.modules],
 })
 export class SharedModule {}
