@@ -1,4 +1,4 @@
-<img src="https://github.com/Meotyda/meotyda-angular-starter/raw/master/src/favicon.png" align="center" alt="logo" width="64" height="64">
+![logo](src/assets/images/logo.png)
 
 # Meotyda Angular Starter
 
