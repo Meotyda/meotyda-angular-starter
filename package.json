@@ -2,7 +2,7 @@
   "name": "angular-meotyda-starter",
   "version": "0.0.1",
   "scripts": {
-    "start": "ng serve --port 3000",
+    "start": "ng serve --port 3000 -o --host=0.0.0.0 --proxy-config=proxy.conf.js",
     "build": "ng build --base-href ./",
     "build:prod": "ng build --base-href ./ --configuration production",
     "build:prod:stats": "ng build --base-href ./ --configuration production --stats-json",
